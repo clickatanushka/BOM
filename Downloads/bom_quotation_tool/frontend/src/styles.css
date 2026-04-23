@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0f0f;
+  --ink2: #444;
+  --ink3: #888;
+  --paper: #fafaf8;
+  --surface: #fff;
+  --border: #e0ddd6;
+  --accent: #1a4fd6;
+  --danger: #e8401c;
+  --success: #1a7a4a;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); }
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.app { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.sidebar {
+  background: #0f0f0f; color: #e8e8e0;
+  padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 20px;
+  overflow-y: auto; max-height: 100vh; position: sticky; top: 0;
+}
+
+.logo { font-family: var(--mono); font-size: 14px; letter-spacing: 0.08em; color: #fff; border-bottom: 1px solid #2a2a2a; padding-bottom: 18px; }
+.logo span { color: #e8401c; }
+.logo-sub { font-size: 9px; color: #555; margin-top: 4px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+.config-section { display: flex; flex-direction: column; gap: 10px; }
+.config-label { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #555; font-family: var(--mono); }
+.config-row { display: flex; flex-direction: column; gap: 4px; }
+.config-row input, .config-row select {
+  background: #1a1a1a; border: 1px solid #2a2a2a; color: #e8e8e0;
+  padding: 7px 10px; font-size: 12px; font-family: var(--mono);
+  border-radius: 3px; width: 100%; outline: none;
+}
+.config-row input:focus { border-color: #e8401c; }
+
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.cost-item { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 3px; padding: 7px 10px; }
+.cost-item label { font-size: 8px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 3px; font-family: var(--mono); }
+.cost-item input { background: transparent; border: none; color: #e8e8e0; font-size: 12px; font-family: var(--mono); width: 100%; outline: none; }
+
+.section-divider { border: none; border-top: 1px solid #1e1e1e; margin: 2px 0; }
+
+/* ── Main ────────────────────────────────────────────────────────────────── */
+.main { background: var(--paper); display: flex; flex-direction: column; }
+
+.topbar {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 14px 28px; display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-title { font-size: 12px; font-family: var(--mono); color: var(--ink3); letter-spacing: 0.06em; }
+.status-pill { font-size: 11px; font-family: var(--mono); padding: 4px 10px; border-radius: 2px; background: #f0ede6; color: var(--ink3); }
+.status-pill.ready { background: #d4f5e2; color: #0d5c34; }
+
+.content { flex: 1; padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+
+/* ── Drop Zone ───────────────────────────────────────────────────────────── */
+.drop-zone {
+  border: 1.5px dashed var(--border); border-radius: 4px;
+  padding: 48px 32px; text-align: center; cursor: pointer;
+  transition: all 0.2s;
+}
+.drop-zone:hover, .drop-zone.drag { border-color: var(--accent); background: #f0f4ff; }
+.drop-icon { font-size: 32px; margin-bottom: 10px; }
+.drop-title { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+.drop-sub { font-size: 11px; color: var(--ink3); font-family: var(--mono); }
+
+/* ── BOM Preview ─────────────────────────────────────────────────────────── */
+.bom-preview { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.bom-header { padding: 12px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: #f9f8f6; flex-wrap: wrap; gap: 8px; }
+.bom-title { font-size: 11px; font-family: var(--mono); letter-spacing: 0.08em; color: var(--ink2); }
+.bom-stats { display: flex; gap: 14px; flex-wrap: wrap; }
+.bom-stat { font-size: 11px; font-family: var(--mono); }
+.bom-stat .val { color: var(--accent); font-weight: 500; }
+.bom-stat .err { color: var(--danger); font-weight: 500; }
+
+.tbl-wrap { overflow-x: auto; max-height: 280px; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { background: #f5f4f0; padding: 8px 12px; text-align: left; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; color: var(--ink3); border-bottom: 1px solid var(--border); position: sticky; top: 0; }
+td { padding: 7px 12px; border-bottom: 1px solid #f0ede8; font-family: var(--mono); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+.match-ok { color: var(--success); font-weight: 500; }
+.match-err { color: var(--danger); font-weight: 500; }
+.row-err { background: #fff8f7; }
+
+/* ── Mismatch Banner ─────────────────────────────────────────────────────── */
+.mismatch-banner {
+  background: #fff3f0; border: 1px solid #ffd4cc; border-radius: 4px;
+  padding: 12px 16px; font-size: 12px; font-family: var(--mono); color: #8a2010;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.mismatch-list { margin-top: 6px; line-height: 1.8; }
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.btn { padding: 10px 22px; font-size: 12px; font-family: var(--mono); font-weight: 500; border: none; border-radius: 3px; cursor: pointer; letter-spacing: 0.04em; transition: all 0.15s; }
+.btn-primary { background: #0f0f0f; color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--accent); }
+.btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--ink2); }
+.btn-secondary:hover:not(:disabled) { border-color: var(--ink); color: var(--ink); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }

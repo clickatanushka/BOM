@@ -1,0 +1,31 @@
+/* Append to styles.css — QuotePreview styles */
+
+.quote-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.qp-header {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: #f9f8f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qp-title {
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  color: var(--ink2);
+}
+
+.quote-doc {
+  padding: 36px 44px;
+  font-family: var(--sans);
+  max-width: 860px;
+  margin: 0 auto;
+}
