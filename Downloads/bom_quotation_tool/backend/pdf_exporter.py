@@ -426,7 +426,8 @@ def export_pdf(quote: Quotation, lang: str = "en") -> bytes:
         story.append(Spacer(1, 4 * mm))
 
     # Dual language heading
-    story.append(Paragraph(T["title"],    st["heading"]))
+    story.append(Paragraph(T["title"], st["heading"]))
+    story.append(Spacer(1, 2 * mm))
     story.append(Paragraph(T["subtitle"], st["heading_sub"]))
     story.append(Spacer(1, 5 * mm))
 
