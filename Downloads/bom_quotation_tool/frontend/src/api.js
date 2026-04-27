@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 const BASE = '/api'
 
 export async function parseBOM(file) {
@@ -11,14 +10,16 @@ export async function parseBOM(file) {
   return res.data
 }
 
-export async function generateQuotation(filename, config, recipientCompany, recipientAddress, exportFormat) {
+export async function generateQuotation(filename, config, recipientCompany, recipientAddress, recipientName, exportFormat, lang) {
   const res = await axios.post(
     `${BASE}/generate?filename=${encodeURIComponent(filename)}`,
     {
       config,
       recipient_company: recipientCompany,
       recipient_address: recipientAddress,
+      recipient_name: recipientName,
       export_format: exportFormat,
+      language: lang,
     },
     { responseType: 'blob' }
   )
