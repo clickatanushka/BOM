@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Data and outputs are never committed: too large, and photos may be
+# confidential to the customer whose boards they show.
+dataset/raw/
+dataset/crops/
+dataset/split/
+models/*.pt
+results/failed/
+results/logs/
+results/reports/*.png
+
+# The printable marker sheet IS committed so the rig can be rebuilt.
+!rig/markers.png

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -m 30 -X POST \"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent\" -H \"Content-Type: application/json\" -H \"x-goog-api-key: $\\(cat api_key.txt\\)\" -d '{\"contents\":[{\"parts\":[{\"text\":\"Say OK\"}]}]}')"
+    ]
+  }
+}

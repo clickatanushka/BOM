@@ -1,0 +1,12 @@
+{
+  "fail_threshold": 0.5667,
+  "check_threshold": 0.1663,
+  "weakest_wrong_score": 0.9534,
+  "strongest_correct_score": 0.1799,
+  "separation": 0.7735,
+  "safety_margin": 0.05,
+  "check_percentile": 99.0,
+  "chosen_on": "validation set",
+  "chosen_at": "2026-09-11T00:27:12",
+  "component": "D12"
+}

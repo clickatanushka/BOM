@@ -1,0 +1,10 @@
+# Pinned to what is verified working on this laptop (Python 3.12, CPU).
+torch>=2.4
+torchvision>=0.19
+timm>=1.0
+opencv-contrib-python>=4.10      # contrib build required: provides cv2.aruco
+numpy>=1.26
+pyyaml>=6.0
+scikit-learn>=1.4
+matplotlib>=3.8
+pillow>=10.0
