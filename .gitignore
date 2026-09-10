@@ -1,6 +1,10 @@
 venv/
 __pycache__/
 *.pyc
-.envgerman/
+.env
+
+# These live in their own repositories:
+#   german/                    -> clickatanushka/SMT
+#   Downloads/audit_systemm/   -> clickatanushka/Ai-Assitant
 german/
 Downloads/audit_systemm/
