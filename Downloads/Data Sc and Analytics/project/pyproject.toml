@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shopkart-course-project"
+version = "1.0.0"
+description = "ShopKart: the Data Science and Analytics course project, built module by module"
+requires-python = ">=3.10"
+
+# Installing the project once (pip install -e .) lets every module import the ones before it,
+# e.g. Module 7 does `from module_06_pandas_eda.cleaning import build_clean_table`.
+[tool.setuptools]
+py-modules = ["project_paths"]
+
+[tool.setuptools.packages.find]
+include = ["module_*"]
